@@ -1,0 +1,68 @@
+/* ===== THEME COLOURS: change these to restyle the whole app ===== */
+:root {
+  --primary: #0f9d8a;        /* main teal */
+  --primary-dark: #0b7a6b;
+  --navy: #12324a;           /* header and text accents */
+  --bg: #f1f7f6;
+  --card: #ffffff;
+  --text: #1c2b36;
+  --muted: #6a7c88;
+  --good: #2e9e5b;
+  --warn: #f59e0b;
+  --bad: #e5484d;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; font-family: "Segoe UI", Arial, sans-serif; background: var(--bg); color: var(--text); }
+
+header { background: linear-gradient(135deg, var(--navy), var(--primary)); color: #fff; text-align: center; padding: 18px 10px 12px; }
+header h1 { margin: 0 0 10px; font-size: 1.5rem; }
+nav a { color: #fff; margin: 0 6px; padding: 6px 10px; border-radius: 20px; text-decoration: none; font-weight: 600; font-size: .88rem; }
+nav a:hover { background: rgba(255,255,255,.2); }
+
+main { max-width: 760px; margin: 22px auto; padding: 0 14px; }
+
+.panel, .card { background: var(--card); border-radius: 14px; padding: 18px; box-shadow: 0 4px 14px rgba(18,50,74,.08); margin-bottom: 16px; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 14px; margin-bottom: 16px; }
+.grid .card { margin: 0; border-top: 4px solid var(--primary); }
+.card .label { display: block; font-size: .75rem; color: var(--muted); text-transform: uppercase; letter-spacing: .5px; }
+.card .value { display: block; font-size: 1.5rem; font-weight: 700; margin-top: 4px; color: var(--navy); }
+.card .sub { font-size: .85rem; color: var(--muted); }
+.card.big { text-align: center; background: linear-gradient(135deg, var(--navy), var(--primary)); color: #fff; }
+.card.big .label, .card.big .sub { color: rgba(255,255,255,.8); }
+.card.big .value { font-size: 2.3rem; color: #fff; }
+
+label { display: block; margin: 12px 0 4px; font-weight: 600; font-size: .9rem; }
+input, select { width: 100%; padding: 11px; border: 1px solid #cfdcd9; border-radius: 10px; font-size: 1rem; background: #fff; }
+input:focus, select:focus { outline: 2px solid var(--primary); border-color: transparent; }
+
+button, .btn { display: inline-block; background: var(--primary); color: #fff; border: 0; padding: 11px 20px;
+  border-radius: 10px; font-size: 1rem; font-weight: 600; cursor: pointer; text-decoration: none; margin-top: 14px; }
+button:hover, .btn:hover { background: var(--primary-dark); }
+button.secondary { background: var(--navy); }
+button.danger { background: var(--bad); }
+.small { padding: 5px 11px; font-size: .8rem; margin-top: 0; }
+
+.actions { display: flex; gap: 12px; align-items: center; margin-bottom: 16px; }
+.actions form, .right form { display: inline; }
+.actions .btn, .actions button { margin-top: 0; }
+
+.bar { background: #dfeceb; border-radius: 10px; height: 16px; overflow: hidden; }
+.fill { background: var(--good); height: 100%; border-radius: 10px; transition: width .4s; }
+.fill.warn { background: var(--warn); }
+.fill.danger { background: var(--bad); }
+
+.row { display: flex; justify-content: space-between; align-items: center; padding: 11px 0; border-bottom: 1px solid #eaf1f0; gap: 10px; }
+.row:last-child { border-bottom: 0; }
+.right { display: flex; align-items: center; gap: 8px; }
+.hint, small { color: var(--muted); font-size: .85rem; }
+
+.alert { padding: 12px 14px; border-radius: 10px; margin-bottom: 14px; font-weight: 500; }
+.alert.danger { background: #fdecec; color: #a4262c; }
+.alert.warn { background: #fff4de; color: #a35a00; }
+.alert.success { background: #e3f6ec; color: #17653a; }
+.alert.info { background: #e3f1f8; color: #12506f; }
+
+@media (max-width: 520px) {
+  .row { flex-direction: column; align-items: flex-start; }
+}

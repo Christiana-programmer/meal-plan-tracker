@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Budget summary</h2>
+<div class="grid">
+  <div class="card"><span class="label">Total deposited</span><span class="value">{{ total|naira }}</span></div>
+  <div class="card"><span class="label">Total spent</span><span class="value">{{ total_spent|naira }}</span></div>
+  <div class="card"><span class="label">Total remaining</span><span class="value">{{ balance|naira }}</span></div>
+</div>
+{% endblock %}

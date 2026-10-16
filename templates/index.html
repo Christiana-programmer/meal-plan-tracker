@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="card big">
+  <span class="label">Welcome</span>
+  <span class="value">Make your money last</span>
+  <span class="sub">Track your daily spending and always know what you have left.</span>
+</div>
+
+<div class="panel">
+  <h2>How it works</h2>
+  <div class="row"><span><strong>1. Set up your budget</strong><br><small>Enter your credits and how many days they must last.</small></span></div>
+  <div class="row"><span><strong>2. Record your expenses</strong><br><small>Add what you spend, with a category.</small></span></div>
+  <div class="row"><span><strong>3. End your day</strong><br><small>Leftover money is shared across your remaining days.</small></span></div>
+</div>
+
+<div class="actions">
+  {% if has_budget %}
+    <a class="btn" href="{{ url_for('dashboard') }}">Go to Dashboard</a>
+    <a class="btn" href="{{ url_for('add_expense') }}">Add Expense</a>
+    <a class="btn" href="{{ url_for('setup') }}" style="background:var(--navy)">Start a New Budget</a>
+  {% else %}
+    <a class="btn" href="{{ url_for('setup') }}">Get Started</a>
+  {% endif %}
+</div>
+{% endblock %}

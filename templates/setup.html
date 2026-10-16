@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="panel">
+  <h2>Set up your budget</h2>
+  <form method="post">
+    <label>Total credits / initial deposit (₦)</label>
+    <input type="number" name="total" step="0.01" min="1" required>
+    <label>Target duration (days)</label>
+    <input type="number" name="days" min="1" required>
+    <label>Start date (optional)</label>
+    <input type="date" name="start_date">
+    <p class="hint">Your daily allowance is calculated automatically.</p>
+    <button type="submit">Start Budget</button>
+  </form>
+</div>
+{% endblock %}

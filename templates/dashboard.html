@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block content %}
+{% if warning %}<div class="alert {{ level }}">{{ warning }}</div>{% endif %}
+
+<div class="card big">
+  <span class="label">Available balance</span>
+  <span class="value">{{ balance|naira }}</span>
+  <span class="sub">Out of {{ total|naira }} deposited</span>
+</div>
+
+<div class="grid">
+  <div class="card"><span class="label">Daily allowance</span><span class="value">{{ allowance|naira }}</span></div>
+  <div class="card"><span class="label">Spent today</span><span class="value">{{ spent_today|naira }}</span></div>
+  <div class="card"><span class="label">Left today</span><span class="value">{{ left_today|naira }}</span></div>
+  <div class="card"><span class="label">Days remaining</span><span class="value">{{ days_left }} days</span></div>
+</div>
+
+<div class="panel">
+  <h3>Today's spending</h3>
+  <div class="bar"><div class="fill {{ level or '' }}" style="width: {{ percent }}%"></div></div>
+  <p class="hint">{{ spent_today|naira }} of {{ allowance|naira }} ({{ percent }}%)</p>
+</div>
+
+<div class="actions">
+  <a class="btn" href="{{ url_for('add_expense') }}">Add expense</a>
+  <form method="post" action="{{ url_for('end_day') }}">
+    <button type="submit" class="secondary">End day</button>
+  </form>
+</div>
+
+<div class="panel">
+  <h3>Recent transactions</h3>
+  {% for e in recent %}
+    <div class="row">
+      <span>{{ e.description }} <small>({{ e.category }}, {{ e.date_time[:16].replace('T', ' ') }})</small></span>
+      <strong>−{{ e.amount|naira }}</strong>
+    </div>
+  {% else %}
+    <p class="hint">No expenses yet.</p>
+  {% endfor %}
+</div>
+{% endblock %}
